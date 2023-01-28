@@ -1,9 +1,9 @@
 <?php
-		    $clientId = '3273';
-        $sharedkey = 'ajzdP7A1rj517TaS';
+	$clientId = 'xxxxx';
+        $sharedkey = 'xxxxx';
         date_default_timezone_set('UTC');
         $systrace =  'INV-' . time();
-        $secretKey = '849af7dbc0c3dc001667a1ce39e9ccdb';
+        $secretKey = 'xxxxx';
         $abc = $clientId . $sharedkey . $systrace;
         $words = hash_hmac('sha1', $abc, $secretKey, false);
         $urlsignon = 'https://staging.doku.com/dokupay/h2h/signon?clientId=' . $clientId . '&clientSecret=' . $secretKey . '&systrace=' . $systrace . '&words=' . $words . '&version=1.0&responseType=1';
@@ -25,7 +25,7 @@
         $hasilsignon = json_decode($responsesignon, true);
         $accesstoken = $hasilsignon['accessToken'];
         //Check Balance API
-        $accountid = '1445631214';
+        $accountid = 'xxxxx';
         $abcblc = $clientId . $systrace . $sharedkey . $accountid; //(clientId + systraceSignOn +sharedKey + accountId
         $wordsbalance = hash_hmac('sha1', $abcblc, $secretKey, false);
         $urlbalance = 'https://staging.doku.com/dokupay/h2h/custsourceoffunds?clientId=' . $clientId . '&accessToken=' . $accesstoken . '&accountId=' . $accountid . '&words=' . $wordsbalance . '&version=1.0';
