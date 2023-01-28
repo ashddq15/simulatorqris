@@ -1,16 +1,16 @@
 <?php
 
-		$qr = $_GET['qr'];
-		$fee = $_GET['fee'];
+	$qr = $_GET['qr'];
+	$fee = $_GET['fee'];
         $token = $_GET['token'];
         $qrencode = rawurlencode($_GET['qr']);
         $trx = $_GET['trx'];
         $amount = $_GET['amount'];
         $merchant = $_GET['merchant'];
-        $clientId = '3273';
-        $sharedkey = 'ajzdP7A1rj517TaS';
-        $acccountId = '1445631214';
-        $secretKey = '849af7dbc0c3dc001667a1ce39e9ccdb';
+        $clientId = 'xxxx';
+        $sharedkey = 'xxxx';
+        $acccountId = 'xxxxx';
+        $secretKey = 'xxxxx';
         $abc = $clientId . $acccountId . $sharedkey . $token . $qr . $trx; //(clientId + accountId + sharedKey + accessToken + qrCodeValue + invoice
         $words = hash_hmac('sha1', $abc, $secretKey, false);
         $urlpayment = 'https://staging.doku.com/dokupay/h2h/doPaymentQris?clientId=' . $clientId . '&accessToken=' . $token . '&accountId=' . $acccountId . '&qrCodeValue=' . $qrencode . '&words=' . $words . '&invoice=' . $trx . '&amount=' . $amount . '&conveniencesFee' . $fee .'&version=3.0';
